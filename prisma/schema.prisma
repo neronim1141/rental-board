@@ -1,0 +1,43 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+enum Category{
+  STRATEGY
+  COOPERATION
+}
+
+model Game {
+  id String   @id @default(auto()) @map("_id") @db.ObjectId
+  name String
+  description String
+  category Category[]
+  minPlayers Int
+  maxPlayers Int
+  timeToPlay Int
+  rents RentedGame[]
+}
+
+enum Status{
+  RENTED
+  IN_STOCK
+  MISSING
+}
+
+model RentedGame {
+   id String   @id @default(auto()) @map("_id") @db.ObjectId
+   game Game @relation(fields: [gameId], references: [id])
+   gameId String
+   personName String
+   personNick String
+   additionalInfo String
+   status Status @default(MISSING) 
+}
