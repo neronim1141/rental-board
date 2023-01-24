@@ -20,12 +20,12 @@ export const Button = ({
     onClick={onClick}
     className={clsx(
       {
-        "bg-lime-700  ": variant === "primary",
-        "bg-red-900 ": variant === "secondary",
-        "bg-red-600 ": variant === "warning",
+        "bg-lime-700": variant === "primary",
+        "bg-red-900": variant === "secondary",
+        "bg-red-600": variant === "warning",
       },
       { "px-2 py-1": size === "sm", "px-4 py-2": size === "md" },
-      " m-1 rounded text-gray-50",
+      "m-1 rounded text-gray-50",
       className
     )}
   >
