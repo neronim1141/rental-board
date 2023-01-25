@@ -4,7 +4,8 @@ import { ReactNode } from "react";
 interface PropsButton extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
   children?: ReactNode;
-  onClick: () => void;
+  disabled?: boolean;
+  onClick?: () => void;
   variant?: "primary" | "secondary" | "warning";
   size?: "sm" | "md";
 }
@@ -12,15 +13,17 @@ interface PropsButton extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 export const Button = ({
   className,
   children,
+  disabled,
   onClick,
   variant = "primary",
   size = "sm",
   ...rest
 }: PropsButton) => (
   <button
+    disabled={disabled || !Boolean(onClick)}
     onClick={onClick}
     className={clsx(
-      "border-2 border-current m-1 rounded-lg font-bold hover:shadow-md ",
+      "border-2 border-current m-1 rounded-lg font-bold hover:shadow-md disabled:opacity-75",
 
       {
         "dark:bg-primary-dark-600 dark:hover:bg-primary-dark-500 dark:text-primary-dark-50":
