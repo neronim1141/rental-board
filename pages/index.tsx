@@ -8,8 +8,8 @@ export default function Home() {
       <Button onClick={() => alert("Wypożyczony")} variant="secondary">
         Wypożycz
       </Button>
-      <Button onClick={() => alert("Usunięty")} variant="warning">
-        Usuć
+      <Button onClick={() => alert("Usunięty")} variant="warning" size="md">
+        Usuń
       </Button>
     </div>
   );
