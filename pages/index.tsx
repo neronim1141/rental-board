@@ -5,11 +5,7 @@ export default function Home() {
     <div>
       <div>tutaj bedzie logowanko</div>
       <Button onClick={() => alert("Dodany")}>Dodaj</Button>
-      <Button
-        onClick={() => alert("Wypożyczony")}
-        variant="secondary"
-        size="md"
-      >
+      <Button onClick={() => alert("Wypożyczony")} variant="secondary">
         Wypożycz
       </Button>
       <Button onClick={() => alert("Usunięty")} variant="warning">
