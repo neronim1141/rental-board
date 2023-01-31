@@ -1,4 +1,5 @@
 import { Button } from "../components/button";
+import { Input } from "../components/input";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <Button onClick={() => alert("Usunięty")} variant="warning" size="md">
         Usuń
       </Button>
+      <Input type="text" />
     </div>
   );
 }
